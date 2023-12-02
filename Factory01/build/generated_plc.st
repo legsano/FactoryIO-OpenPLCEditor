@@ -1,0 +1,1790 @@
+PROGRAM PART2
+  VAR_EXTERNAL
+    START : BOOL;
+    STOP : BOOL;
+    SENDIF17 : BOOL;
+  END_VAR
+  VAR
+    SENDIF18 AT %IX102.7 : BOOL;
+    SENDIF19 AT %IX103.0 : BOOL;
+    SENDIF20 AT %IX103.1 : BOOL;
+    SENDIF21 AT %IX103.2 : BOOL;
+    SENDIF22 AT %IX103.3 : BOOL;
+    SENDIF23 AT %IX103.4 : BOOL;
+    SENDIF24 AT %IX103.5 : BOOL;
+    SENDIF25 AT %IX103.6 : BOOL;
+    Tfontlimit1 AT %IX103.7 : BOOL;
+    Tfontlimit2 AT %IX104.0 : BOOL;
+    Tfontlimit3 AT %IX104.1 : BOOL;
+    Tfontlimit4 AT %IX104.2 : BOOL;
+    T90limit1 AT %IX104.3 : BOOL;
+    T90limit2 AT %IX104.4 : BOOL;
+    T90limit3 AT %IX104.5 : BOOL;
+    T90limit4 AT %IX104.6 : BOOL;
+    SENCAP1 AT %IX104.7 : BOOL;
+    SENCAP2 AT %IX105.0 : BOOL;
+    SENCAP3 AT %IX105.1 : BOOL;
+    SENCAP4 AT %IX105.2 : BOOL;
+    ROLCON2_1 AT %QX106.1 : BOOL;
+    ROLCON2_2 AT %QX106.2 : BOOL;
+    ROLCON6_1 AT %QX106.3 : BOOL;
+    ROLCON6_2 AT %QX106.4 : BOOL;
+    ROLCON6_3 AT %QX106.5 : BOOL;
+    ROLCON6_4 AT %QX106.6 : BOOL;
+    ROLCON6_5 AT %QX106.7 : BOOL;
+    ROLCON6_6 AT %QX107.0 : BOOL;
+    TTRPos1 AT %QX107.1 : BOOL;
+    TTRNeg1 AT %QX107.2 : BOOL;
+    TTRPos2 AT %QX107.3 : BOOL;
+    TTRNeg2 AT %QX107.4 : BOOL;
+    TTRPos3 AT %QX107.5 : BOOL;
+    TTRNeg3 AT %QX107.6 : BOOL;
+    TTRPos4 AT %QX107.7 : BOOL;
+    TTRNeg4 AT %QX108.0 : BOOL;
+    TurnTable1 AT %QX108.1 : BOOL;
+    TurnTable2 AT %QX108.2 : BOOL;
+    TurnTable3 AT %QX108.3 : BOOL;
+    TurnTable4 AT %QX108.4 : BOOL;
+    Chainplus1 AT %QX108.5 : BOOL;
+    Chainplus5 AT %QX108.6 : BOOL;
+    Chainleft1 AT %QX108.7 : BOOL;
+    Chainleft2 AT %QX109.0 : BOOL;
+    Chainleft3 AT %QX109.1 : BOOL;
+    Chainleft4 AT %QX109.2 : BOOL;
+    Chainleft5 AT %QX109.3 : BOOL;
+    LoadCon AT %QX109.4 : BOOL;
+    MCstop1 AT %QX110.2 : BOOL;
+    MCstop2 AT %QX110.3 : BOOL;
+    MCstop3 AT %QX110.4 : BOOL;
+    MCstop4 AT %QX110.5 : BOOL;
+  END_VAR
+
+  IF START THEN
+    ROLCON2_1 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON2_2 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON6_1 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON6_2 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON6_3 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON6_4 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON6_5 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    ROLCON6_6 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    MCstop1 := FALSE; (*reset*)
+  END_IF;
+  IF START THEN
+    MCstop2 := FALSE; (*reset*)
+  END_IF;
+  IF START THEN
+    MCstop3 := FALSE; (*reset*)
+  END_IF;
+  IF START THEN
+    MCstop4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON2_1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON2_2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON6_1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON6_2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON6_3 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON6_4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON6_5 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    ROLCON6_6 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainplus5 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainplus1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainleft1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainleft2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainleft3 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainleft4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Chainleft5 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    LoadCon := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    MCstop1 := TRUE; (*set*)
+  END_IF;
+  IF NOT(STOP) THEN
+    MCstop2 := TRUE; (*set*)
+  END_IF;
+  IF NOT(STOP) THEN
+    MCstop3 := TRUE; (*set*)
+  END_IF;
+  IF NOT(STOP) THEN
+    MCstop4 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF18 THEN
+    TTRPos1 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF22 THEN
+    TTRPos3 := TRUE; (*set*)
+  END_IF;
+  IF Tfontlimit1 THEN
+    TurnTable1 := TRUE; (*set*)
+  END_IF;
+  IF Tfontlimit1 THEN
+    TTRPos1 := FALSE; (*reset*)
+  END_IF;
+  IF Tfontlimit3 THEN
+    TurnTable3 := TRUE; (*set*)
+  END_IF;
+  IF Tfontlimit3 THEN
+    TTRPos3 := FALSE; (*reset*)
+  END_IF;
+  IF T90limit1 THEN
+    TTRNeg1 := TRUE; (*set*)
+  END_IF;
+  IF T90limit3 THEN
+    TTRNeg3 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF19 THEN
+    TurnTable1 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF19 THEN
+    TTRNeg1 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF25 THEN
+    TurnTable3 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF25 THEN
+    TTRNeg3 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF20 THEN
+    TTRPos2 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF23 THEN
+    TTRPos4 := TRUE; (*set*)
+  END_IF;
+  IF Tfontlimit2 THEN
+    TurnTable2 := TRUE; (*set*)
+  END_IF;
+  IF Tfontlimit2 THEN
+    TTRPos2 := FALSE; (*reset*)
+  END_IF;
+  IF Tfontlimit4 THEN
+    TurnTable4 := TRUE; (*set*)
+  END_IF;
+  IF Tfontlimit4 THEN
+    TTRPos4 := FALSE; (*reset*)
+  END_IF;
+  IF T90limit2 THEN
+    TTRNeg2 := TRUE; (*set*)
+  END_IF;
+  IF T90limit4 THEN
+    TTRNeg4 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF21 THEN
+    TurnTable2 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF21 THEN
+    TTRNeg2 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF24 THEN
+    TurnTable4 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF24 THEN
+    TTRNeg4 := FALSE; (*reset*)
+  END_IF;
+  IF SENCAP1 THEN
+    Chainplus1 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP3 THEN
+    Chainplus5 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP2 THEN
+    Chainplus1 := FALSE; (*reset*)
+  END_IF;
+  IF SENCAP2 THEN
+    Chainleft1 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP2 THEN
+    Chainleft2 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP2 THEN
+    Chainleft3 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP2 THEN
+    Chainleft4 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP2 THEN
+    Chainleft5 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP2 THEN
+    LoadCon := TRUE; (*set*)
+  END_IF;
+  IF SENCAP4 THEN
+    Chainplus5 := FALSE; (*reset*)
+  END_IF;
+  IF SENCAP4 THEN
+    Chainleft5 := TRUE; (*set*)
+  END_IF;
+  IF SENCAP4 THEN
+    LoadCon := TRUE; (*set*)
+  END_IF;
+  IF SENDIF17 THEN
+    Chainleft1 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF17 THEN
+    Chainleft2 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF17 THEN
+    Chainleft3 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF17 THEN
+    Chainleft4 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF17 THEN
+    Chainleft5 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF17 THEN
+    LoadCon := FALSE; (*reset*)
+  END_IF;
+END_PROGRAM
+
+PROGRAM PART3
+  VAR_EXTERNAL
+    SENDIF17 : BOOL;
+  END_VAR
+  VAR
+    X AT %IX105.3 : BOOL;
+    Z AT %IX105.4 : BOOL;
+    CAPSEN5 AT %IX105.5 : BOOL;
+    CAPSEN6 AT %IX105.6 : BOOL;
+    RESET AT %IX105.7 : BOOL;
+    Lift AT %QX109.5 : BOOL;
+    Leeft AT %QX109.6 : BOOL;
+    Riight AT %QX109.7 : BOOL;
+    StopCon1 AT %QX110.0 : BOOL;
+    StopCon2 AT %QX110.1 : BOOL;
+    Target AT %QW106 : INT;
+    DigDisply AT %QW107 : INT;
+    DigDisply0 AT %QW110 : INT;
+    VIRWH1 AT %QX6.0 : BOOL;
+    VIRWH2 AT %QX6.1 : BOOL;
+    VIRWH3 AT %QX6.2 : BOOL;
+    VIRWH4 AT %QX6.3 : BOOL;
+    VIRBack AT %QX6.4 : BOOL;
+    VIRBlockX AT %QX6.5 : BOOL;
+    VIRBlockZ AT %QX6.6 : BOOL;
+    VIRS1 AT %QX6.7 : BOOL;
+    VIRS2 AT %QX7.0 : BOOL;
+  END_VAR
+  VAR
+    TON0 : TON;
+    TON1 : TON;
+    CTU0 : CTU;
+    TON2 : TON;
+    TON4 : TON;
+    TON6 : TON;
+    TON3 : TON;
+    TON7 : TON;
+    CTU1 : CTU;
+    TON8 : TON;
+    TON9 : TON;
+    TON10 : TON;
+    TON11 : TON;
+    R_TRIG1 : R_TRIG;
+    F_TRIG1 : F_TRIG;
+    F_TRIG2 : F_TRIG;
+    F_TRIG3 : F_TRIG;
+    R_TRIG2 : R_TRIG;
+    _TMP_AND69_OUT : BOOL;
+    _TMP_ADD46_ENO : BOOL;
+    _TMP_ADD46_OUT : INT;
+  END_VAR
+
+  IF VIRWH1 THEN
+    Leeft := TRUE; (*set*)
+  END_IF;
+  TON0(IN := VIRWH1, PT := T#1500ms);
+  IF TON0.Q THEN
+    Lift := TRUE; (*set*)
+  END_IF;
+  TON1(IN := TON0.Q, PT := T#1500ms);
+  IF TON1.Q THEN
+    Leeft := FALSE; (*reset*)
+  END_IF;
+  VIRWH2 := TON1.Q OR TON1.Q;
+  IF SENDIF17 THEN
+    VIRWH1 := TRUE; (*set*)
+  END_IF;
+  TON2(IN := VIRWH2, PT := T#1500ms);
+  IF TON2.Q THEN
+    VIRWH3 := TRUE; (*set*)
+  END_IF;
+  IF TON2.Q THEN
+    VIRWH1 := FALSE; (*reset*)
+  END_IF;
+  TON7(IN := VIRWH1, PT := T#4400ms);
+  IF TON7.Q THEN
+    VIRBack := FALSE; (*reset*)
+  END_IF;
+  R_TRIG1(CLK := TON2.Q);
+  CTU0(CU := R_TRIG1.Q, R := RESET, PV := 54);
+  Target := CTU0.CV;
+  F_TRIG1(CLK := X);
+  IF F_TRIG1.Q THEN
+    VIRBlockX := TRUE; (*set*)
+  END_IF;
+  DigDisply := CTU0.CV;
+  F_TRIG2(CLK := Z);
+  F_TRIG3(CLK := Z);
+  R_TRIG2(CLK := F_TRIG3.Q);
+  CTU1(CU := R_TRIG2.Q, R := SENDIF17, PV := 2);
+  IF F_TRIG2.Q AND CTU1.Q THEN
+    VIRBlockZ := TRUE; (*set*)
+  END_IF;
+  IF VIRBack AND VIRWH3 THEN
+    Riight := TRUE; (*set*)
+  END_IF;
+  TON4(IN := VIRBack AND VIRWH3, PT := T#1500ms);
+  IF TON4.Q THEN
+    Lift := FALSE; (*reset*)
+  END_IF;
+  IF TON4.Q THEN
+    VIRWH4 := TRUE; (*set*)
+  END_IF;
+  DigDisply0 := CTU1.CV;
+  _TMP_AND69_OUT := AND(VIRBlockZ, VIRBlockX);
+  IF _TMP_AND69_OUT THEN
+    VIRBack := TRUE; (*set*)
+  END_IF;
+  TON3(IN := VIRWH4, PT := T#1000ms);
+  IF TON3.Q THEN
+    Riight := FALSE; (*reset*)
+  END_IF;
+  IF TON3.Q THEN
+    VIRWH3 := FALSE; (*reset*)
+  END_IF;
+  IF TON3.Q THEN
+    VIRWH4 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_AND69_OUT THEN
+    VIRBlockX := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_AND69_OUT THEN
+    VIRBlockZ := FALSE; (*reset*)
+  END_IF;
+  TON6(IN := VIRBack, PT := T#4500ms);
+  _TMP_ADD46_OUT := ADD(EN := TON6.Q, IN1 := Target, IN2 := 55, ENO => _TMP_ADD46_ENO);
+  IF _TMP_ADD46_ENO THEN
+      Target := _TMP_ADD46_OUT;
+  END_IF;
+  StopCon1 := NOT(VIRS1) AND CAPSEN5;
+  TON8(IN := StopCon1, PT := T#4000ms);
+  IF TON8.Q THEN
+    VIRS1 := TRUE; (*set*)
+  END_IF;
+  TON9(IN := VIRS1, PT := T#2000ms);
+  IF TON9.Q THEN
+    VIRS1 := FALSE; (*reset*)
+  END_IF;
+  StopCon2 := NOT(VIRS2) AND CAPSEN6;
+  TON10(IN := StopCon2, PT := T#4000ms);
+  IF TON10.Q THEN
+    VIRS2 := TRUE; (*set*)
+  END_IF;
+  TON11(IN := VIRS2, PT := T#2000ms);
+  IF TON11.Q THEN
+    VIRS2 := FALSE; (*reset*)
+  END_IF;
+END_PROGRAM
+
+PROGRAM JS4Finale
+  VAR_EXTERNAL
+    START : BOOL;
+    STOP : BOOL;
+  END_VAR
+  VAR
+    SENDIF1 AT %IX100.2 : BOOL;
+    SENDIF2 AT %IX100.3 : BOOL;
+    SENDIF3 AT %IX100.4 : BOOL;
+    SENDIF4 AT %IX100.5 : BOOL;
+    SENDIF5 AT %IX100.6 : BOOL;
+    SENDIF6 AT %IX100.7 : BOOL;
+    SENDIF7 AT %IX101.0 : BOOL;
+    SENDIF8 AT %IX101.1 : BOOL;
+    SENDIF9 AT %IX101.2 : BOOL;
+    SENDIF10 AT %IX101.3 : BOOL;
+    SENDIF11 AT %IX101.4 : BOOL;
+    SENDIF12 AT %IX101.5 : BOOL;
+    SENVIS1 AT %IX101.6 : BOOL;
+    SENVIS2 AT %IX101.7 : BOOL;
+    SENVIS3 AT %IX102.0 : BOOL;
+    SENVIS4 AT %IX102.1 : BOOL;
+    SENDIF13 AT %IX102.2 : BOOL;
+    SENDIF14 AT %IX102.3 : BOOL;
+    SENDIF15 AT %IX102.4 : BOOL;
+    SENDIF16 AT %IX102.5 : BOOL;
+    CON2_1 AT %QX100.0 : BOOL;
+    CON2_2 AT %QX100.1 : BOOL;
+    CON2_3 AT %QX100.2 : BOOL;
+    CON2_4 AT %QX100.3 : BOOL;
+    CON2_5 AT %QX100.4 : BOOL;
+    CON2_6 AT %QX100.5 : BOOL;
+    CON2_7 AT %QX100.6 : BOOL;
+    CON2_8 AT %QX100.7 : BOOL;
+    CON6_1 AT %QX101.0 : BOOL;
+    CON6_2 AT %QX101.1 : BOOL;
+    CON6_3 AT %QX101.2 : BOOL;
+    CON6_4 AT %QX101.3 : BOOL;
+    CON6_5 AT %QX101.4 : BOOL;
+    CON6_6 AT %QX101.5 : BOOL;
+    CON6_7 AT %QX101.6 : BOOL;
+    CON6_8 AT %QX101.7 : BOOL;
+    CON6_9 AT %QX102.0 : BOOL;
+    MCstart1 AT %QX102.1 : BOOL;
+    MCstart2 AT %QX102.2 : BOOL;
+    MCstart3 AT %QX102.3 : BOOL;
+    MCstart4 AT %QX102.4 : BOOL;
+    MClids3 AT %QX102.5 : BOOL;
+    MClids4 AT %QX102.6 : BOOL;
+    CLAMP1 AT %QX102.7 : BOOL;
+    CLAMP2 AT %QX103.0 : BOOL;
+    CLAMP3 AT %QX103.1 : BOOL;
+    CLAMP4 AT %QX103.2 : BOOL;
+    CLPRise2 AT %QX103.3 : BOOL;
+    CLPRise4 AT %QX103.4 : BOOL;
+    X1 AT %QX103.5 : BOOL;
+    Z1 AT %QX103.6 : BOOL;
+    GRAB1 AT %QX103.7 : BOOL;
+    X2 AT %QX104.0 : BOOL;
+    Z2 AT %QX104.1 : BOOL;
+    GRAB2 AT %QX104.2 : BOOL;
+    PUSHER1 AT %QX104.3 : BOOL;
+    PUSHER2 AT %QX104.4 : BOOL;
+    PUSHER3 AT %QX104.5 : BOOL;
+    PUSHER4 AT %QX104.6 : BOOL;
+    CON4_1 AT %QX104.7 : BOOL;
+    CON6_10 AT %QX105.0 : BOOL;
+    CON6_11 AT %QX105.1 : BOOL;
+    CON6_12 AT %QX105.2 : BOOL;
+    CON6_13 AT %QX105.3 : BOOL;
+    CON6_14 AT %QX105.4 : BOOL;
+    GRABXYZ1 AT %QX105.5 : BOOL;
+    CLAMPXYZ1 AT %QX105.6 : BOOL;
+    GRABXYZ2 AT %QX105.7 : BOOL;
+    CLAMPXYZ2 AT %QX106.0 : BOOL;
+    SPX1 AT %QW100 : INT;
+    SPY1 AT %QW101 : INT;
+    SPZ1 AT %QW102 : INT;
+    SPX2 AT %QW103 : INT;
+    SPY2 AT %QW104 : INT;
+    SPZ2 AT %QW105 : INT;
+    VIR1 AT %QX0.0 : BOOL;
+    VIR2 AT %QX0.1 : BOOL;
+    VIR3 AT %QX0.2 : BOOL;
+    VIR4 AT %QX0.3 : BOOL;
+    VIR5 AT %QX0.4 : BOOL;
+    VIR6 AT %QX0.5 : BOOL;
+    VIR7 AT %QX0.6 : BOOL;
+    VIR8 AT %QX0.7 : BOOL;
+    VIR9 AT %QX1.0 : BOOL;
+    VIR10 AT %QX1.1 : BOOL;
+    VIR11 AT %QX1.2 : BOOL;
+    VIR12 AT %QX1.3 : BOOL;
+    VIRXYZ1_1 AT %QX1.4 : BOOL;
+    VIRXYZ1_2 AT %QX1.5 : BOOL;
+    VIRXYZ1_3 AT %QX1.6 : BOOL;
+    VIRXYZ1_4 AT %QX1.7 : BOOL;
+    VIRXYZ1_5 AT %QX2.0 : BOOL;
+    VIRXYZ1_6 AT %QX2.1 : BOOL;
+    VIRXYZ1_7 AT %QX2.2 : BOOL;
+    VIRXYZ1_8 AT %QX2.3 : BOOL;
+    VIRXYZ1_9 AT %QX2.4 : BOOL;
+    BlockXYZ1_1 AT %QX2.5 : BOOL;
+    BlockXYZ1_2 AT %QX2.6 : BOOL;
+    BlockXYZ1_3 AT %QX2.7 : BOOL;
+    BlockXYZ1_4 AT %QX3.0 : BOOL;
+    GRABVIRXYZ1_1 AT %QX3.1 : BOOL;
+    GRABVIRXYZ1_2 AT %QX3.2 : BOOL;
+    GRABVIRXYZ1_3 AT %QX3.3 : BOOL;
+    GRABVIRXYZ1_4 AT %QX3.4 : BOOL;
+    VIRDIF13 AT %QX3.5 : BOOL;
+    VIRDIF14 AT %QX3.6 : BOOL;
+    VIRXYZ2_1 AT %QX3.7 : BOOL;
+    VIRXYZ2_2 AT %QX4.0 : BOOL;
+    VIRXYZ2_3 AT %QX4.1 : BOOL;
+    VIRXYZ2_4 AT %QX4.2 : BOOL;
+    VIRXYZ2_5 AT %QX4.3 : BOOL;
+    VIRXYZ2_6 AT %QX4.4 : BOOL;
+    VIRXYZ2_7 AT %QX4.5 : BOOL;
+    VIRXYZ2_8 AT %QX4.6 : BOOL;
+    VIRXYZ2_9 AT %QX4.7 : BOOL;
+    GRABVIRXYZ2_1 AT %QX5.0 : BOOL;
+    GRABVIRXYZ2_2 AT %QX5.1 : BOOL;
+    GRABVIRXYZ2_3 AT %QX5.2 : BOOL;
+    GRABVIRXYZ2_4 AT %QX5.3 : BOOL;
+    BlockXYZ2_1 AT %QX5.4 : BOOL;
+    BlockXYZ2_2 AT %QX5.5 : BOOL;
+    BlockXYZ2_3 AT %QX5.6 : BOOL;
+    BlockXYZ2_4 AT %QX5.7 : BOOL;
+  END_VAR
+  VAR
+    TON1 : TON;
+    TON2 : TON;
+    TON3 : TON;
+    TON4 : TON;
+    TON5 : TON;
+    TON6 : TON;
+    TON7 : TON;
+    TON8 : TON;
+    TON9 : TON;
+    TON0 : TON;
+    TON10 : TON;
+    TON11 : TON;
+    TON12 : TON;
+    TON13 : TON;
+    TON14 : TON;
+    TON15 : TON;
+    TON16 : TON;
+    TON17 : TON;
+    TON18 : TON;
+    TON19 : TON;
+    TON20 : TON;
+    TON21 : TON;
+    TON22 : TON;
+    TON23 : TON;
+    TON24 : TON;
+    TON25 : TON;
+    TON26 : TON;
+    TON27 : TON;
+    TON28 : TON;
+    TON29 : TON;
+    TON30 : TON;
+    TON31 : TON;
+    TON32 : TON;
+    TON33 : TON;
+    TON34 : TON;
+    TON35 : TON;
+    TOF0 : TOF;
+    TON36 : TON;
+    TON37 : TON;
+    TON38 : TON;
+    TON39 : TON;
+    TON40 : TON;
+    TON41 : TON;
+    TON42 : TON;
+    TON43 : TON;
+    TON44 : TON;
+    TON45 : TON;
+    TON46 : TON;
+    TON47 : TON;
+    TON48 : TON;
+    TON49 : TON;
+    TON50 : TON;
+    TON51 : TON;
+    TON52 : TON;
+    TON53 : TON;
+    TON54 : TON;
+    TON55 : TON;
+    TOF1 : TOF;
+    _TMP_MOVE431_ENO : BOOL;
+    _TMP_MOVE431_OUT : INT;
+    _TMP_MOVE679_ENO : BOOL;
+    _TMP_MOVE679_OUT : INT;
+    _TMP_MOVE243_ENO : BOOL;
+    _TMP_MOVE243_OUT : INT;
+    _TMP_MOVE497_ENO : BOOL;
+    _TMP_MOVE497_OUT : INT;
+    _TMP_MOVE214_ENO : BOOL;
+    _TMP_MOVE214_OUT : INT;
+    _TMP_MOVE218_ENO : BOOL;
+    _TMP_MOVE218_OUT : INT;
+    _TMP_MOVE460_ENO : BOOL;
+    _TMP_MOVE460_OUT : INT;
+    _TMP_MOVE468_ENO : BOOL;
+    _TMP_MOVE468_OUT : INT;
+    _TMP_MOVE472_ENO : BOOL;
+    _TMP_MOVE472_OUT : INT;
+    _TMP_MOVE695_ENO : BOOL;
+    _TMP_MOVE695_OUT : INT;
+    _TMP_MOVE432_ENO : BOOL;
+    _TMP_MOVE432_OUT : INT;
+    _TMP_MOVE222_ENO : BOOL;
+    _TMP_MOVE222_OUT : INT;
+    _TMP_MOVE680_ENO : BOOL;
+    _TMP_MOVE680_OUT : INT;
+    _TMP_MOVE476_ENO : BOOL;
+    _TMP_MOVE476_OUT : INT;
+    _TMP_MOVE226_ENO : BOOL;
+    _TMP_MOVE226_OUT : INT;
+    _TMP_MOVE235_ENO : BOOL;
+    _TMP_MOVE235_OUT : INT;
+    _TMP_MOVE480_ENO : BOOL;
+    _TMP_MOVE480_OUT : INT;
+    _TMP_MOVE489_ENO : BOOL;
+    _TMP_MOVE489_OUT : INT;
+    _TMP_MOVE258_ENO : BOOL;
+    _TMP_MOVE258_OUT : INT;
+    _TMP_MOVE511_ENO : BOOL;
+    _TMP_MOVE511_OUT : INT;
+    _TMP_MOVE262_ENO : BOOL;
+    _TMP_MOVE262_OUT : INT;
+    _TMP_MOVE287_ENO : BOOL;
+    _TMP_MOVE287_OUT : INT;
+    _TMP_MOVE463_ENO : BOOL;
+    _TMP_MOVE463_OUT : INT;
+    _TMP_MOVE515_ENO : BOOL;
+    _TMP_MOVE515_OUT : INT;
+    _TMP_MOVE540_ENO : BOOL;
+    _TMP_MOVE540_OUT : INT;
+    _TMP_MOVE698_ENO : BOOL;
+    _TMP_MOVE698_OUT : INT;
+    _TMP_MOVE266_ENO : BOOL;
+    _TMP_MOVE266_OUT : INT;
+    _TMP_MOVE270_ENO : BOOL;
+    _TMP_MOVE270_OUT : INT;
+    _TMP_MOVE519_ENO : BOOL;
+    _TMP_MOVE519_OUT : INT;
+    _TMP_MOVE523_ENO : BOOL;
+    _TMP_MOVE523_OUT : INT;
+    _TMP_MOVE279_ENO : BOOL;
+    _TMP_MOVE279_OUT : INT;
+    _TMP_MOVE416_ENO : BOOL;
+    _TMP_MOVE416_OUT : INT;
+    _TMP_MOVE532_ENO : BOOL;
+    _TMP_MOVE532_OUT : INT;
+    _TMP_MOVE666_ENO : BOOL;
+    _TMP_MOVE666_OUT : INT;
+    _TMP_MOVE334_ENO : BOOL;
+    _TMP_MOVE334_OUT : INT;
+    _TMP_MOVE587_ENO : BOOL;
+    _TMP_MOVE587_OUT : INT;
+    _TMP_MOVE305_ENO : BOOL;
+    _TMP_MOVE305_OUT : INT;
+    _TMP_MOVE347_ENO : BOOL;
+    _TMP_MOVE347_OUT : INT;
+    _TMP_MOVE309_ENO : BOOL;
+    _TMP_MOVE309_OUT : INT;
+    _TMP_MOVE558_ENO : BOOL;
+    _TMP_MOVE558_OUT : INT;
+    _TMP_MOVE600_ENO : BOOL;
+    _TMP_MOVE600_OUT : INT;
+    _TMP_MOVE562_ENO : BOOL;
+    _TMP_MOVE562_OUT : INT;
+    _TMP_MOVE313_ENO : BOOL;
+    _TMP_MOVE313_OUT : INT;
+    _TMP_MOVE317_ENO : BOOL;
+    _TMP_MOVE317_OUT : INT;
+    _TMP_MOVE566_ENO : BOOL;
+    _TMP_MOVE566_OUT : INT;
+    _TMP_MOVE570_ENO : BOOL;
+    _TMP_MOVE570_OUT : INT;
+    _TMP_MOVE326_ENO : BOOL;
+    _TMP_MOVE326_OUT : INT;
+    _TMP_MOVE427_ENO : BOOL;
+    _TMP_MOVE427_OUT : INT;
+    _TMP_MOVE579_ENO : BOOL;
+    _TMP_MOVE579_OUT : INT;
+    _TMP_MOVE675_ENO : BOOL;
+    _TMP_MOVE675_OUT : INT;
+    _TMP_MOVE381_ENO : BOOL;
+    _TMP_MOVE381_OUT : INT;
+    _TMP_MOVE634_ENO : BOOL;
+    _TMP_MOVE634_OUT : INT;
+    _TMP_MOVE352_ENO : BOOL;
+    _TMP_MOVE352_OUT : INT;
+    _TMP_MOVE394_ENO : BOOL;
+    _TMP_MOVE394_OUT : INT;
+    _TMP_MOVE356_ENO : BOOL;
+    _TMP_MOVE356_OUT : INT;
+    _TMP_MOVE605_ENO : BOOL;
+    _TMP_MOVE605_OUT : INT;
+    _TMP_MOVE647_ENO : BOOL;
+    _TMP_MOVE647_OUT : INT;
+    _TMP_MOVE609_ENO : BOOL;
+    _TMP_MOVE609_OUT : INT;
+    _TMP_MOVE360_ENO : BOOL;
+    _TMP_MOVE360_OUT : INT;
+    _TMP_MOVE364_ENO : BOOL;
+    _TMP_MOVE364_OUT : INT;
+    _TMP_MOVE613_ENO : BOOL;
+    _TMP_MOVE613_OUT : INT;
+    _TMP_MOVE617_ENO : BOOL;
+    _TMP_MOVE617_OUT : INT;
+    _TMP_MOVE373_ENO : BOOL;
+    _TMP_MOVE373_OUT : INT;
+    _TMP_MOVE429_ENO : BOOL;
+    _TMP_MOVE429_OUT : INT;
+    _TMP_MOVE626_ENO : BOOL;
+    _TMP_MOVE626_OUT : INT;
+    _TMP_MOVE677_ENO : BOOL;
+    _TMP_MOVE677_OUT : INT;
+  END_VAR
+
+  IF START THEN
+    CON2_1 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_2 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_3 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_4 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_5 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_6 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_7 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_8 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_6 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_7 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_8 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_9 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_1 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_2 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_3 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_4 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_5 := TRUE; (*set*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_3 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_5 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_6 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_7 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_8 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_6 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_7 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_8 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_9 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_3 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_5 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CLAMP1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CLAMP2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CLAMP3 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CLAMP4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CLPRise2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CLPRise4 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    GRAB1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    GRAB2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON4_1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_10 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_11 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_12 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_13 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON6_14 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    CON2_1 := FALSE; (*reset*)
+  END_IF;
+  IF START THEN
+    CON4_1 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_10 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_11 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_12 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_13 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON6_14 := TRUE; (*set*)
+  END_IF;
+  IF START THEN
+    CON2_1 := TRUE; (*set*)
+  END_IF;
+  IF NOT(STOP) THEN
+    X1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    X2 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Z1 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    VIR5 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    VIR9 := FALSE; (*reset*)
+  END_IF;
+  IF NOT(STOP) THEN
+    Z2 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF1 THEN
+    VIR1 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF3 THEN
+    VIR3 := TRUE; (*set*)
+  END_IF;
+  IF TRUE THEN
+    MClids3 := TRUE; (*set*)
+  END_IF;
+  TON1(IN := VIR1, PT := T#3500ms);
+  IF TON1.Q THEN
+    CON2_1 := FALSE; (*reset*)
+  END_IF;
+  IF TON1.Q THEN
+    MCstart1 := TRUE; (*set*)
+  END_IF;
+  IF TON1.Q THEN
+    VIR1 := FALSE; (*reset*)
+  END_IF;
+  TON3(IN := VIR3, PT := T#700ms);
+  IF TON3.Q THEN
+    CON2_3 := FALSE; (*reset*)
+  END_IF;
+  IF TON3.Q THEN
+    MCstart3 := TRUE; (*set*)
+  END_IF;
+  IF TON3.Q THEN
+    VIR3 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF5 THEN
+    MCstart1 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF5 THEN
+    CON2_1 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF7 THEN
+    CON2_3 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF7 THEN
+    MCstart3 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF2 THEN
+    VIR2 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF4 THEN
+    VIR4 := TRUE; (*set*)
+  END_IF;
+  IF TRUE THEN
+    MClids4 := TRUE; (*set*)
+  END_IF;
+  TON2(IN := VIR2, PT := T#3500ms);
+  IF TON2.Q THEN
+    CON2_2 := FALSE; (*reset*)
+  END_IF;
+  IF TON2.Q THEN
+    MCstart2 := TRUE; (*set*)
+  END_IF;
+  IF TON2.Q THEN
+    VIR2 := FALSE; (*reset*)
+  END_IF;
+  TON4(IN := VIR4, PT := T#700ms);
+  IF TON4.Q THEN
+    CON2_4 := FALSE; (*reset*)
+  END_IF;
+  IF TON4.Q THEN
+    MCstart4 := TRUE; (*set*)
+  END_IF;
+  IF TON4.Q THEN
+    VIR4 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF6 THEN
+    MCstart2 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF6 THEN
+    CON2_2 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF8 THEN
+    CON2_4 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF8 THEN
+    MCstart4 := FALSE; (*reset*)
+  END_IF;
+  PUSHER1 := SENVIS1;
+  PUSHER2 := SENVIS2;
+  PUSHER3 := SENVIS3;
+  PUSHER4 := SENVIS4;
+  TON0(IN := VIR11, PT := T#1s);
+  IF TON0.Q THEN
+    Z2 := TRUE; (*set*)
+  END_IF;
+  TON5(IN := TON0.Q, PT := T#1s);
+  IF TON5.Q THEN
+    GRAB2 := TRUE; (*set*)
+  END_IF;
+  IF TON5.Q THEN
+    Z2 := FALSE; (*reset*)
+  END_IF;
+  IF TON5.Q THEN
+    CLAMP3 := FALSE; (*reset*)
+  END_IF;
+  IF TON5.Q THEN
+    VIR9 := TRUE; (*set*)
+  END_IF;
+  TON15(IN := VIR7, PT := T#1s);
+  IF TON15.Q THEN
+    Z1 := TRUE; (*set*)
+  END_IF;
+  TON10(IN := TON15.Q, PT := T#1s);
+  IF TON10.Q THEN
+    GRAB1 := TRUE; (*set*)
+  END_IF;
+  IF TON10.Q THEN
+    Z1 := FALSE; (*reset*)
+  END_IF;
+  IF TON10.Q THEN
+    CLAMP1 := FALSE; (*reset*)
+  END_IF;
+  IF TON10.Q THEN
+    VIR5 := TRUE; (*set*)
+  END_IF;
+  IF VIR5 THEN
+    VIR7 := FALSE; (*reset*)
+  END_IF;
+  TON11(IN := VIR5, PT := T#1s);
+  IF TON11.Q THEN
+    X1 := TRUE; (*set*)
+  END_IF;
+  TON12(IN := VIR8 AND TON11.Q, PT := T#1s);
+  IF TON12.Q THEN
+    Z1 := TRUE; (*set*)
+  END_IF;
+  TON13(IN := TON12.Q, PT := T#1s);
+  IF TON13.Q THEN
+    VIR6 := TRUE; (*set*)
+  END_IF;
+  IF VIR9 THEN
+    VIR11 := FALSE; (*reset*)
+  END_IF;
+  TON6(IN := VIR9, PT := T#1s);
+  IF TON6.Q THEN
+    X2 := TRUE; (*set*)
+  END_IF;
+  TON7(IN := VIR12 AND TON6.Q, PT := T#1s);
+  IF TON7.Q THEN
+    Z2 := TRUE; (*set*)
+  END_IF;
+  TON8(IN := TON7.Q, PT := T#1s);
+  IF TON8.Q THEN
+    VIR10 := TRUE; (*set*)
+  END_IF;
+  IF VIR10 THEN
+    VIR12 := FALSE; (*reset*)
+  END_IF;
+  IF VIR10 THEN
+    VIR9 := FALSE; (*reset*)
+  END_IF;
+  IF VIR10 THEN
+    GRAB2 := FALSE; (*reset*)
+  END_IF;
+  IF VIR10 THEN
+    Z2 := FALSE; (*reset*)
+  END_IF;
+  IF VIR10 THEN
+    CLAMP4 := FALSE; (*reset*)
+  END_IF;
+  IF VIR10 THEN
+    CLPRise4 := TRUE; (*set*)
+  END_IF;
+  TON9(IN := VIR10, PT := T#1s);
+  IF TON9.Q THEN
+    X2 := FALSE; (*reset*)
+  END_IF;
+  IF TON9.Q THEN
+    CLPRise4 := FALSE; (*reset*)
+  END_IF;
+  IF TON9.Q THEN
+    VIR10 := FALSE; (*reset*)
+  END_IF;
+  IF VIR6 THEN
+    VIR8 := FALSE; (*reset*)
+  END_IF;
+  IF VIR6 THEN
+    VIR5 := FALSE; (*reset*)
+  END_IF;
+  IF VIR6 THEN
+    GRAB1 := FALSE; (*reset*)
+  END_IF;
+  IF VIR6 THEN
+    Z1 := FALSE; (*reset*)
+  END_IF;
+  IF VIR6 THEN
+    CLAMP2 := FALSE; (*reset*)
+  END_IF;
+  IF VIR6 THEN
+    CLPRise2 := TRUE; (*set*)
+  END_IF;
+  TON14(IN := VIR6, PT := T#1s);
+  IF TON14.Q THEN
+    X1 := FALSE; (*reset*)
+  END_IF;
+  IF TON14.Q THEN
+    CLPRise2 := FALSE; (*reset*)
+  END_IF;
+  IF TON14.Q THEN
+    VIR6 := FALSE; (*reset*)
+  END_IF;
+  IF SENDIF11 THEN
+    CLAMP3 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF9 THEN
+    CLAMP1 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF11 THEN
+    VIR11 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF9 THEN
+    VIR7 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF12 THEN
+    CLAMP4 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF10 THEN
+    CLAMP2 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF12 THEN
+    VIR12 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF10 THEN
+    VIR8 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE431_OUT := MOVE(EN := START, IN := 160, ENO => _TMP_MOVE431_ENO);
+  IF _TMP_MOVE431_ENO THEN
+      SPY1 := _TMP_MOVE431_OUT;
+  END_IF;
+  _TMP_MOVE679_OUT := MOVE(EN := START, IN := 950, ENO => _TMP_MOVE679_ENO);
+  IF _TMP_MOVE679_ENO THEN
+      SPY2 := _TMP_MOVE679_OUT;
+  END_IF;
+  _TMP_MOVE243_OUT := MOVE(EN := NOT(BlockXYZ1_1) AND VIRDIF13, IN := 810, ENO => _TMP_MOVE243_ENO);
+  IF _TMP_MOVE243_ENO THEN
+    CLAMPXYZ1 := TRUE; (*set*)
+  END_IF;
+  TON20(IN := _TMP_MOVE243_ENO, PT := T#1300ms);
+  IF TON20.Q THEN
+    GRABVIRXYZ1_1 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE497_OUT := MOVE(EN := NOT(BlockXYZ2_1) AND VIRDIF14, IN := 810, ENO => _TMP_MOVE497_ENO);
+  IF _TMP_MOVE497_ENO THEN
+    CLAMPXYZ2 := TRUE; (*set*)
+  END_IF;
+  TON40(IN := _TMP_MOVE497_ENO, PT := T#1300ms);
+  IF TON40.Q THEN
+    GRABVIRXYZ2_1 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE243_ENO THEN
+      SPZ1 := _TMP_MOVE243_OUT;
+  END_IF;
+  IF _TMP_MOVE497_ENO THEN
+      SPZ2 := _TMP_MOVE497_OUT;
+  END_IF;
+  IF GRABVIRXYZ1_1 THEN
+    VIRDIF13 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE214_OUT := MOVE(EN := GRABVIRXYZ1_1, IN := 0, ENO => _TMP_MOVE214_ENO);
+  IF _TMP_MOVE214_ENO THEN
+    CLAMPXYZ1 := FALSE; (*reset*)
+  END_IF;
+  TON18(IN := _TMP_MOVE214_ENO, PT := T#1s);
+  _TMP_MOVE218_OUT := MOVE(EN := TON18.Q, IN := 730, ENO => _TMP_MOVE218_ENO);
+  _TMP_MOVE460_OUT := MOVE(EN := _TMP_MOVE218_ENO, IN := 60, ENO => _TMP_MOVE460_ENO);
+  VIRXYZ1_1 := _TMP_MOVE460_ENO;
+  IF GRABVIRXYZ2_1 THEN
+    VIRDIF14 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE468_OUT := MOVE(EN := GRABVIRXYZ2_1, IN := 0, ENO => _TMP_MOVE468_ENO);
+  IF _TMP_MOVE468_ENO THEN
+    CLAMPXYZ2 := FALSE; (*reset*)
+  END_IF;
+  TON38(IN := _TMP_MOVE468_ENO, PT := T#1s);
+  _TMP_MOVE472_OUT := MOVE(EN := TON38.Q, IN := 730, ENO => _TMP_MOVE472_ENO);
+  _TMP_MOVE695_OUT := MOVE(EN := _TMP_MOVE472_ENO, IN := 950, ENO => _TMP_MOVE695_ENO);
+  VIRXYZ2_1 := _TMP_MOVE695_ENO;
+  IF _TMP_MOVE214_ENO THEN
+      SPZ1 := _TMP_MOVE214_OUT;
+  END_IF;
+  IF _TMP_MOVE468_ENO THEN
+      SPZ2 := _TMP_MOVE468_OUT;
+  END_IF;
+  IF _TMP_MOVE218_ENO THEN
+      SPX1 := _TMP_MOVE218_OUT;
+  END_IF;
+  IF _TMP_MOVE472_ENO THEN
+      SPX2 := _TMP_MOVE472_OUT;
+  END_IF;
+  IF _TMP_MOVE460_ENO THEN
+      SPY1 := _TMP_MOVE460_OUT;
+  END_IF;
+  IF _TMP_MOVE695_ENO THEN
+      SPY2 := _TMP_MOVE695_OUT;
+  END_IF;
+  TON19(IN := VIRXYZ1_1, PT := T#1s);
+  _TMP_MOVE432_OUT := MOVE(EN := TON19.Q, IN := 550, ENO => _TMP_MOVE432_ENO);
+  TON16(IN := _TMP_MOVE432_ENO, PT := T#1s);
+  IF TON16.Q THEN
+    GRABXYZ1 := FALSE; (*reset*)
+  END_IF;
+  IF TON16.Q THEN
+    GRABVIRXYZ1_1 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE222_OUT := MOVE(EN := TON16.Q, IN := 0, ENO => _TMP_MOVE222_ENO);
+  IF _TMP_MOVE222_ENO THEN
+    VIRXYZ1_2 := TRUE; (*set*)
+  END_IF;
+  TON39(IN := VIRXYZ2_1, PT := T#1s);
+  _TMP_MOVE680_OUT := MOVE(EN := TON39.Q, IN := 550, ENO => _TMP_MOVE680_ENO);
+  TON36(IN := _TMP_MOVE680_ENO, PT := T#1s);
+  IF TON36.Q THEN
+    GRABXYZ2 := FALSE; (*reset*)
+  END_IF;
+  IF TON36.Q THEN
+    GRABVIRXYZ2_1 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE476_OUT := MOVE(EN := TON36.Q, IN := 0, ENO => _TMP_MOVE476_ENO);
+  IF _TMP_MOVE476_ENO THEN
+    VIRXYZ2_2 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE432_ENO THEN
+      SPZ1 := _TMP_MOVE432_OUT;
+  END_IF;
+  IF _TMP_MOVE680_ENO THEN
+      SPZ2 := _TMP_MOVE680_OUT;
+  END_IF;
+  IF _TMP_MOVE222_ENO THEN
+      SPZ1 := _TMP_MOVE222_OUT;
+  END_IF;
+  IF _TMP_MOVE476_ENO THEN
+      SPZ2 := _TMP_MOVE476_OUT;
+  END_IF;
+  TON17(IN := VIRXYZ1_2, PT := T#1ms);
+  _TMP_MOVE226_OUT := MOVE(EN := TON17.Q, IN := 0, ENO => _TMP_MOVE226_ENO);
+  _TMP_MOVE235_OUT := MOVE(EN := _TMP_MOVE226_ENO, IN := 160, ENO => _TMP_MOVE235_ENO);
+  IF _TMP_MOVE235_ENO THEN
+    VIRXYZ1_2 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE235_ENO THEN
+    BlockXYZ1_1 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE235_ENO THEN
+    BlockXYZ1_2 := TRUE; (*set*)
+  END_IF;
+  TON37(IN := VIRXYZ2_2, PT := T#1ms);
+  _TMP_MOVE480_OUT := MOVE(EN := TON37.Q, IN := 0, ENO => _TMP_MOVE480_ENO);
+  _TMP_MOVE489_OUT := MOVE(EN := _TMP_MOVE480_ENO, IN := 950, ENO => _TMP_MOVE489_ENO);
+  IF _TMP_MOVE489_ENO THEN
+    VIRXYZ2_2 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE489_ENO THEN
+    BlockXYZ2_1 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE489_ENO THEN
+    BlockXYZ2_2 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE226_ENO THEN
+      SPX1 := _TMP_MOVE226_OUT;
+  END_IF;
+  IF _TMP_MOVE480_ENO THEN
+      SPX2 := _TMP_MOVE480_OUT;
+  END_IF;
+  IF _TMP_MOVE235_ENO THEN
+      SPY1 := _TMP_MOVE235_OUT;
+  END_IF;
+  IF _TMP_MOVE489_ENO THEN
+      SPY2 := _TMP_MOVE489_OUT;
+  END_IF;
+  IF BlockXYZ1_2 AND VIRDIF13 THEN
+    CLAMPXYZ1 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE258_OUT := MOVE(EN := BlockXYZ1_2 AND VIRDIF13, IN := 810, ENO => _TMP_MOVE258_ENO);
+  TON25(IN := _TMP_MOVE258_ENO, PT := T#1300ms);
+  IF TON25.Q THEN
+    GRABVIRXYZ1_2 := TRUE; (*set*)
+  END_IF;
+  IF BlockXYZ2_2 AND VIRDIF14 THEN
+    CLAMPXYZ2 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE511_OUT := MOVE(EN := BlockXYZ2_2 AND VIRDIF14, IN := 810, ENO => _TMP_MOVE511_ENO);
+  TON45(IN := _TMP_MOVE511_ENO, PT := T#1300ms);
+  IF TON45.Q THEN
+    GRABVIRXYZ2_2 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE258_ENO THEN
+      SPZ1 := _TMP_MOVE258_OUT;
+  END_IF;
+  IF _TMP_MOVE511_ENO THEN
+      SPZ2 := _TMP_MOVE511_OUT;
+  END_IF;
+  IF GRABVIRXYZ1_2 THEN
+    VIRDIF13 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE262_OUT := MOVE(EN := GRABVIRXYZ1_2, IN := 0, ENO => _TMP_MOVE262_ENO);
+  IF _TMP_MOVE262_ENO THEN
+    CLAMPXYZ1 := FALSE; (*reset*)
+  END_IF;
+  TON23(IN := _TMP_MOVE262_ENO, PT := T#1s);
+  _TMP_MOVE287_OUT := MOVE(EN := TON23.Q, IN := 920, ENO => _TMP_MOVE287_ENO);
+  _TMP_MOVE463_OUT := MOVE(EN := _TMP_MOVE287_ENO, IN := 60, ENO => _TMP_MOVE463_ENO);
+  VIRXYZ1_3 := _TMP_MOVE463_ENO;
+  IF GRABVIRXYZ2_2 THEN
+    VIRDIF14 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE515_OUT := MOVE(EN := GRABVIRXYZ2_2, IN := 0, ENO => _TMP_MOVE515_ENO);
+  IF _TMP_MOVE515_ENO THEN
+    CLAMPXYZ2 := FALSE; (*reset*)
+  END_IF;
+  TON43(IN := _TMP_MOVE515_ENO, PT := T#1s);
+  _TMP_MOVE540_OUT := MOVE(EN := TON43.Q, IN := 920, ENO => _TMP_MOVE540_ENO);
+  _TMP_MOVE698_OUT := MOVE(EN := _TMP_MOVE540_ENO, IN := 950, ENO => _TMP_MOVE698_ENO);
+  VIRXYZ2_3 := _TMP_MOVE698_ENO;
+  IF _TMP_MOVE262_ENO THEN
+      SPZ1 := _TMP_MOVE262_OUT;
+  END_IF;
+  IF _TMP_MOVE287_ENO THEN
+      SPX1 := _TMP_MOVE287_OUT;
+  END_IF;
+  IF _TMP_MOVE515_ENO THEN
+      SPZ2 := _TMP_MOVE515_OUT;
+  END_IF;
+  IF _TMP_MOVE540_ENO THEN
+      SPX2 := _TMP_MOVE540_OUT;
+  END_IF;
+  IF _TMP_MOVE463_ENO THEN
+      SPY1 := _TMP_MOVE463_OUT;
+  END_IF;
+  IF _TMP_MOVE698_ENO THEN
+      SPY2 := _TMP_MOVE698_OUT;
+  END_IF;
+  TON24(IN := VIRXYZ1_3, PT := T#1500ms);
+  _TMP_MOVE266_OUT := MOVE(EN := TON24.Q, IN := 550, ENO => _TMP_MOVE266_ENO);
+  TON21(IN := _TMP_MOVE266_ENO, PT := T#1s);
+  IF TON21.Q THEN
+    GRABXYZ1 := FALSE; (*reset*)
+  END_IF;
+  IF TON21.Q THEN
+    GRABVIRXYZ1_2 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE270_OUT := MOVE(EN := TON21.Q, IN := 0, ENO => _TMP_MOVE270_ENO);
+  IF _TMP_MOVE270_ENO THEN
+    VIRXYZ1_4 := TRUE; (*set*)
+  END_IF;
+  TON44(IN := VIRXYZ2_3, PT := T#1500ms);
+  _TMP_MOVE519_OUT := MOVE(EN := TON44.Q, IN := 550, ENO => _TMP_MOVE519_ENO);
+  TON41(IN := _TMP_MOVE519_ENO, PT := T#1s);
+  IF TON41.Q THEN
+    GRABXYZ2 := FALSE; (*reset*)
+  END_IF;
+  IF TON41.Q THEN
+    GRABVIRXYZ2_2 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE523_OUT := MOVE(EN := TON41.Q, IN := 0, ENO => _TMP_MOVE523_ENO);
+  IF _TMP_MOVE523_ENO THEN
+    VIRXYZ2_4 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE266_ENO THEN
+      SPZ1 := _TMP_MOVE266_OUT;
+  END_IF;
+  IF _TMP_MOVE270_ENO THEN
+      SPZ1 := _TMP_MOVE270_OUT;
+  END_IF;
+  IF _TMP_MOVE519_ENO THEN
+      SPZ2 := _TMP_MOVE519_OUT;
+  END_IF;
+  IF _TMP_MOVE523_ENO THEN
+      SPZ2 := _TMP_MOVE523_OUT;
+  END_IF;
+  TON22(IN := VIRXYZ1_4, PT := T#1000ms);
+  _TMP_MOVE279_OUT := MOVE(EN := TON22.Q, IN := 0, ENO => _TMP_MOVE279_ENO);
+  _TMP_MOVE416_OUT := MOVE(EN := _TMP_MOVE279_ENO, IN := 160, ENO => _TMP_MOVE416_ENO);
+  IF _TMP_MOVE416_ENO THEN
+    VIRXYZ1_4 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE416_ENO THEN
+    BlockXYZ1_2 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE416_ENO THEN
+    BlockXYZ1_3 := TRUE; (*set*)
+  END_IF;
+  TON42(IN := VIRXYZ2_4, PT := T#1000ms);
+  _TMP_MOVE532_OUT := MOVE(EN := TON42.Q, IN := 0, ENO => _TMP_MOVE532_ENO);
+  _TMP_MOVE666_OUT := MOVE(EN := _TMP_MOVE532_ENO, IN := 950, ENO => _TMP_MOVE666_ENO);
+  IF _TMP_MOVE666_ENO THEN
+    VIRXYZ2_4 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE666_ENO THEN
+    BlockXYZ2_2 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE666_ENO THEN
+    BlockXYZ2_3 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE279_ENO THEN
+      SPX1 := _TMP_MOVE279_OUT;
+  END_IF;
+  IF _TMP_MOVE416_ENO THEN
+      SPY1 := _TMP_MOVE416_OUT;
+  END_IF;
+  IF _TMP_MOVE532_ENO THEN
+      SPX2 := _TMP_MOVE532_OUT;
+  END_IF;
+  IF _TMP_MOVE666_ENO THEN
+      SPY2 := _TMP_MOVE666_OUT;
+  END_IF;
+  IF BlockXYZ1_3 AND VIRDIF13 THEN
+    CLAMPXYZ1 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE334_OUT := MOVE(EN := BlockXYZ1_3 AND VIRDIF13, IN := 810, ENO => _TMP_MOVE334_ENO);
+  TON30(IN := _TMP_MOVE334_ENO, PT := T#1300ms);
+  IF TON30.Q THEN
+    GRABVIRXYZ1_3 := TRUE; (*set*)
+  END_IF;
+  IF BlockXYZ2_3 AND VIRDIF14 THEN
+    CLAMPXYZ2 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE587_OUT := MOVE(EN := BlockXYZ2_3 AND VIRDIF14, IN := 810, ENO => _TMP_MOVE587_ENO);
+  TON50(IN := _TMP_MOVE587_ENO, PT := T#1300ms);
+  IF TON50.Q THEN
+    GRABVIRXYZ2_3 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE334_ENO THEN
+      SPZ1 := _TMP_MOVE334_OUT;
+  END_IF;
+  IF _TMP_MOVE587_ENO THEN
+      SPZ2 := _TMP_MOVE587_OUT;
+  END_IF;
+  IF GRABVIRXYZ1_3 THEN
+    VIRDIF13 := FALSE; (*reset*)
+  END_IF;
+  IF GRABVIRXYZ2_3 THEN
+    VIRDIF14 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE305_OUT := MOVE(EN := GRABVIRXYZ1_3, IN := 0, ENO => _TMP_MOVE305_ENO);
+  IF _TMP_MOVE305_ENO THEN
+    CLAMPXYZ1 := FALSE; (*reset*)
+  END_IF;
+  TON28(IN := _TMP_MOVE305_ENO, PT := T#1000ms);
+  _TMP_MOVE347_OUT := MOVE(EN := TON28.Q, IN := 370, ENO => _TMP_MOVE347_ENO);
+  _TMP_MOVE309_OUT := MOVE(EN := _TMP_MOVE347_ENO, IN := 730, ENO => _TMP_MOVE309_ENO);
+  VIRXYZ1_5 := _TMP_MOVE309_ENO;
+  _TMP_MOVE558_OUT := MOVE(EN := GRABVIRXYZ2_3, IN := 0, ENO => _TMP_MOVE558_ENO);
+  IF _TMP_MOVE558_ENO THEN
+    CLAMPXYZ2 := FALSE; (*reset*)
+  END_IF;
+  TON48(IN := _TMP_MOVE558_ENO, PT := T#1000ms);
+  _TMP_MOVE600_OUT := MOVE(EN := TON48.Q, IN := 640, ENO => _TMP_MOVE600_ENO);
+  _TMP_MOVE562_OUT := MOVE(EN := _TMP_MOVE600_ENO, IN := 730, ENO => _TMP_MOVE562_ENO);
+  VIRXYZ2_5 := _TMP_MOVE562_ENO;
+  IF _TMP_MOVE347_ENO THEN
+      SPY1 := _TMP_MOVE347_OUT;
+  END_IF;
+  IF _TMP_MOVE600_ENO THEN
+      SPY2 := _TMP_MOVE600_OUT;
+  END_IF;
+  IF _TMP_MOVE309_ENO THEN
+      SPX1 := _TMP_MOVE309_OUT;
+  END_IF;
+  IF _TMP_MOVE562_ENO THEN
+      SPX2 := _TMP_MOVE562_OUT;
+  END_IF;
+  IF _TMP_MOVE305_ENO THEN
+      SPZ1 := _TMP_MOVE305_OUT;
+  END_IF;
+  IF _TMP_MOVE558_ENO THEN
+      SPZ2 := _TMP_MOVE558_OUT;
+  END_IF;
+  TON29(IN := VIRXYZ1_5, PT := T#1000ms);
+  _TMP_MOVE313_OUT := MOVE(EN := TON29.Q, IN := 550, ENO => _TMP_MOVE313_ENO);
+  TON26(IN := _TMP_MOVE313_ENO, PT := T#1s);
+  IF TON26.Q THEN
+    GRABXYZ1 := FALSE; (*reset*)
+  END_IF;
+  IF TON26.Q THEN
+    GRABVIRXYZ1_3 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE317_OUT := MOVE(EN := TON26.Q, IN := 0, ENO => _TMP_MOVE317_ENO);
+  IF _TMP_MOVE317_ENO THEN
+    VIRXYZ1_6 := TRUE; (*set*)
+  END_IF;
+  TON49(IN := VIRXYZ2_5, PT := T#1000ms);
+  _TMP_MOVE566_OUT := MOVE(EN := TON49.Q, IN := 550, ENO => _TMP_MOVE566_ENO);
+  TON46(IN := _TMP_MOVE566_ENO, PT := T#1s);
+  IF TON46.Q THEN
+    GRABXYZ2 := FALSE; (*reset*)
+  END_IF;
+  IF TON46.Q THEN
+    GRABVIRXYZ2_3 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE570_OUT := MOVE(EN := TON46.Q, IN := 0, ENO => _TMP_MOVE570_ENO);
+  IF _TMP_MOVE570_ENO THEN
+    VIRXYZ2_6 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE313_ENO THEN
+      SPZ1 := _TMP_MOVE313_OUT;
+  END_IF;
+  IF _TMP_MOVE566_ENO THEN
+      SPZ2 := _TMP_MOVE566_OUT;
+  END_IF;
+  IF _TMP_MOVE317_ENO THEN
+      SPZ1 := _TMP_MOVE317_OUT;
+  END_IF;
+  IF _TMP_MOVE570_ENO THEN
+      SPZ2 := _TMP_MOVE570_OUT;
+  END_IF;
+  TON27(IN := VIRXYZ1_6, PT := T#1000ms);
+  _TMP_MOVE326_OUT := MOVE(EN := TON27.Q, IN := 0, ENO => _TMP_MOVE326_ENO);
+  _TMP_MOVE427_OUT := MOVE(EN := _TMP_MOVE326_ENO, IN := 160, ENO => _TMP_MOVE427_ENO);
+  IF _TMP_MOVE427_ENO THEN
+    VIRXYZ1_6 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE427_ENO THEN
+    BlockXYZ1_3 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE427_ENO THEN
+    BlockXYZ1_4 := TRUE; (*set*)
+  END_IF;
+  TON47(IN := VIRXYZ2_6, PT := T#1000ms);
+  _TMP_MOVE579_OUT := MOVE(EN := TON47.Q, IN := 0, ENO => _TMP_MOVE579_ENO);
+  _TMP_MOVE675_OUT := MOVE(EN := _TMP_MOVE579_ENO, IN := 950, ENO => _TMP_MOVE675_ENO);
+  IF _TMP_MOVE675_ENO THEN
+    VIRXYZ2_6 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE675_ENO THEN
+    BlockXYZ2_3 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE675_ENO THEN
+    BlockXYZ2_4 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE326_ENO THEN
+      SPX1 := _TMP_MOVE326_OUT;
+  END_IF;
+  IF _TMP_MOVE579_ENO THEN
+      SPX2 := _TMP_MOVE579_OUT;
+  END_IF;
+  IF _TMP_MOVE427_ENO THEN
+      SPY1 := _TMP_MOVE427_OUT;
+  END_IF;
+  IF _TMP_MOVE675_ENO THEN
+      SPY2 := _TMP_MOVE675_OUT;
+  END_IF;
+  IF BlockXYZ1_4 AND VIRDIF13 THEN
+    CLAMPXYZ1 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE381_OUT := MOVE(EN := BlockXYZ1_4 AND VIRDIF13, IN := 810, ENO => _TMP_MOVE381_ENO);
+  TON35(IN := _TMP_MOVE381_ENO, PT := T#1300ms);
+  IF TON35.Q THEN
+    GRABVIRXYZ1_4 := TRUE; (*set*)
+  END_IF;
+  IF BlockXYZ2_4 AND VIRDIF14 THEN
+    CLAMPXYZ2 := TRUE; (*set*)
+  END_IF;
+  _TMP_MOVE634_OUT := MOVE(EN := BlockXYZ2_4 AND VIRDIF14, IN := 810, ENO => _TMP_MOVE634_ENO);
+  TON55(IN := _TMP_MOVE634_ENO, PT := T#1300ms);
+  IF TON55.Q THEN
+    GRABVIRXYZ2_4 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE381_ENO THEN
+      SPZ1 := _TMP_MOVE381_OUT;
+  END_IF;
+  IF _TMP_MOVE634_ENO THEN
+      SPZ2 := _TMP_MOVE634_OUT;
+  END_IF;
+  IF GRABVIRXYZ1_4 THEN
+    VIRDIF13 := FALSE; (*reset*)
+  END_IF;
+  IF GRABVIRXYZ2_4 THEN
+    VIRDIF14 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE352_OUT := MOVE(EN := GRABVIRXYZ1_4, IN := 0, ENO => _TMP_MOVE352_ENO);
+  IF _TMP_MOVE352_ENO THEN
+    CLAMPXYZ1 := FALSE; (*reset*)
+  END_IF;
+  TON33(IN := _TMP_MOVE352_ENO, PT := T#1000ms);
+  _TMP_MOVE394_OUT := MOVE(EN := TON33.Q, IN := 370, ENO => _TMP_MOVE394_ENO);
+  _TMP_MOVE356_OUT := MOVE(EN := _TMP_MOVE394_ENO, IN := 920, ENO => _TMP_MOVE356_ENO);
+  VIRXYZ1_7 := _TMP_MOVE356_ENO;
+  _TMP_MOVE605_OUT := MOVE(EN := GRABVIRXYZ2_4, IN := 0, ENO => _TMP_MOVE605_ENO);
+  IF _TMP_MOVE605_ENO THEN
+    CLAMPXYZ2 := FALSE; (*reset*)
+  END_IF;
+  TON53(IN := _TMP_MOVE605_ENO, PT := T#1000ms);
+  _TMP_MOVE647_OUT := MOVE(EN := TON53.Q, IN := 640, ENO => _TMP_MOVE647_ENO);
+  _TMP_MOVE609_OUT := MOVE(EN := _TMP_MOVE647_ENO, IN := 920, ENO => _TMP_MOVE609_ENO);
+  VIRXYZ2_7 := _TMP_MOVE609_ENO;
+  IF _TMP_MOVE352_ENO THEN
+      SPZ1 := _TMP_MOVE352_OUT;
+  END_IF;
+  IF _TMP_MOVE605_ENO THEN
+      SPZ2 := _TMP_MOVE605_OUT;
+  END_IF;
+  IF _TMP_MOVE394_ENO THEN
+      SPY1 := _TMP_MOVE394_OUT;
+  END_IF;
+  IF _TMP_MOVE356_ENO THEN
+      SPX1 := _TMP_MOVE356_OUT;
+  END_IF;
+  IF _TMP_MOVE647_ENO THEN
+      SPY2 := _TMP_MOVE647_OUT;
+  END_IF;
+  IF _TMP_MOVE609_ENO THEN
+      SPX2 := _TMP_MOVE609_OUT;
+  END_IF;
+  TON34(IN := VIRXYZ1_7, PT := T#1500ms);
+  _TMP_MOVE360_OUT := MOVE(EN := TON34.Q, IN := 550, ENO => _TMP_MOVE360_ENO);
+  TON31(IN := _TMP_MOVE360_ENO, PT := T#1s);
+  IF TON31.Q THEN
+    GRABXYZ1 := FALSE; (*reset*)
+  END_IF;
+  IF TON31.Q THEN
+    GRABVIRXYZ1_4 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE364_OUT := MOVE(EN := TON31.Q, IN := 0, ENO => _TMP_MOVE364_ENO);
+  IF _TMP_MOVE364_ENO THEN
+    VIRXYZ1_8 := TRUE; (*set*)
+  END_IF;
+  TON54(IN := VIRXYZ2_7, PT := T#1500ms);
+  _TMP_MOVE613_OUT := MOVE(EN := TON54.Q, IN := 550, ENO => _TMP_MOVE613_ENO);
+  TON51(IN := _TMP_MOVE613_ENO, PT := T#1s);
+  IF TON51.Q THEN
+    GRABXYZ2 := FALSE; (*reset*)
+  END_IF;
+  IF TON51.Q THEN
+    GRABVIRXYZ2_4 := FALSE; (*reset*)
+  END_IF;
+  _TMP_MOVE617_OUT := MOVE(EN := TON51.Q, IN := 0, ENO => _TMP_MOVE617_ENO);
+  IF _TMP_MOVE617_ENO THEN
+    VIRXYZ2_8 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE360_ENO THEN
+      SPZ1 := _TMP_MOVE360_OUT;
+  END_IF;
+  IF _TMP_MOVE613_ENO THEN
+      SPZ2 := _TMP_MOVE613_OUT;
+  END_IF;
+  IF _TMP_MOVE364_ENO THEN
+      SPZ1 := _TMP_MOVE364_OUT;
+  END_IF;
+  IF _TMP_MOVE617_ENO THEN
+      SPZ2 := _TMP_MOVE617_OUT;
+  END_IF;
+  TON32(IN := VIRXYZ1_8, PT := T#1200ms);
+  _TMP_MOVE373_OUT := MOVE(EN := TON32.Q, IN := 0, ENO => _TMP_MOVE373_ENO);
+  _TMP_MOVE429_OUT := MOVE(EN := _TMP_MOVE373_ENO, IN := 160, ENO => _TMP_MOVE429_ENO);
+  IF _TMP_MOVE429_ENO THEN
+    VIRXYZ1_8 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE429_ENO THEN
+    BlockXYZ1_4 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE429_ENO THEN
+    BlockXYZ1_1 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE429_ENO THEN
+    CON6_12 := TRUE; (*set*)
+  END_IF;
+  TON52(IN := VIRXYZ2_8, PT := T#1200ms);
+  _TMP_MOVE626_OUT := MOVE(EN := TON52.Q, IN := 0, ENO => _TMP_MOVE626_ENO);
+  _TMP_MOVE677_OUT := MOVE(EN := _TMP_MOVE626_ENO, IN := 950, ENO => _TMP_MOVE677_ENO);
+  IF _TMP_MOVE677_ENO THEN
+    VIRXYZ2_8 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE677_ENO THEN
+    BlockXYZ2_4 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE677_ENO THEN
+    BlockXYZ2_1 := FALSE; (*reset*)
+  END_IF;
+  IF _TMP_MOVE677_ENO THEN
+    CON6_14 := TRUE; (*set*)
+  END_IF;
+  IF _TMP_MOVE373_ENO THEN
+      SPX1 := _TMP_MOVE373_OUT;
+  END_IF;
+  IF _TMP_MOVE429_ENO THEN
+      SPY1 := _TMP_MOVE429_OUT;
+  END_IF;
+  IF _TMP_MOVE626_ENO THEN
+      SPX2 := _TMP_MOVE626_OUT;
+  END_IF;
+  IF _TMP_MOVE677_ENO THEN
+      SPY2 := _TMP_MOVE677_OUT;
+  END_IF;
+  TOF0(IN := _TMP_MOVE429_ENO, PT := T#3000ms);
+  VIRXYZ1_9 := TOF0.Q;
+  TOF1(IN := _TMP_MOVE677_ENO, PT := T#3000ms);
+  VIRXYZ2_9 := TOF1.Q;
+  IF GRABVIRXYZ1_1 THEN
+    GRABXYZ1 := TRUE; (*set*)
+  END_IF;
+  IF GRABVIRXYZ2_1 THEN
+    GRABXYZ2 := TRUE; (*set*)
+  END_IF;
+  IF GRABVIRXYZ1_2 THEN
+    GRABXYZ1 := TRUE; (*set*)
+  END_IF;
+  IF NOT(VIRXYZ1_9) AND SENDIF15 THEN
+    CON6_12 := FALSE; (*reset*)
+  END_IF;
+  IF GRABVIRXYZ2_2 THEN
+    GRABXYZ2 := TRUE; (*set*)
+  END_IF;
+  IF NOT(VIRXYZ2_9) AND SENDIF16 THEN
+    CON6_14 := FALSE; (*reset*)
+  END_IF;
+  IF GRABVIRXYZ1_3 THEN
+    GRABXYZ1 := TRUE; (*set*)
+  END_IF;
+  IF GRABVIRXYZ2_3 THEN
+    GRABXYZ2 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF13 THEN
+    VIRDIF13 := TRUE; (*set*)
+  END_IF;
+  IF SENDIF14 THEN
+    VIRDIF14 := TRUE; (*set*)
+  END_IF;
+  IF GRABVIRXYZ1_4 THEN
+    GRABXYZ1 := TRUE; (*set*)
+  END_IF;
+  IF GRABVIRXYZ2_4 THEN
+    GRABXYZ2 := TRUE; (*set*)
+  END_IF;
+END_PROGRAM
+
+
+CONFIGURATION Config0
+
+  RESOURCE Res0 ON PLC
+    VAR_GLOBAL
+      START AT %IX100.0 : BOOL;
+      STOP AT %IX100.1 : BOOL;
+      SENDIF17 AT %IX102.6 : BOOL;
+    END_VAR
+    TASK task0(INTERVAL := T#20ms,PRIORITY := 0);
+    TASK task1(INTERVAL := T#20ms,PRIORITY := 0);
+    TASK task2(INTERVAL := T#20ms,PRIORITY := 0);
+    PROGRAM instance0 WITH task0 : JS4Finale;
+    PROGRAM instance1 WITH task1 : PART2;
+    PROGRAM instance2 WITH task2 : PART3;
+  END_RESOURCE
+END_CONFIGURATION

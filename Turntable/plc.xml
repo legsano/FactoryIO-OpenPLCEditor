@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns:ns1="http://www.plcopen.org/xml/tc6_0201" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2023-03-23T10:40:35"/>
+  <contentHeader name="Unnamed" modificationDateTime="2023-04-02T20:38:17">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="10" y="10"/>
+      </fbd>
+      <ld>
+        <scaling x="10" y="10"/>
+      </ld>
+      <sfc>
+        <scaling x="10" y="10"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="muterr" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="START" address="%IX100.0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="STOP" address="%IX100.1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="SEN1" address="%IX100.2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="SEN2" address="%IX100.3">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="SEN3" address="%IX100.4">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TFrontLimit" address="%IX100.5">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TFrontLimit90" address="%IX100.6">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="CON1" address="%QX100.0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="CON2" address="%QX100.1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TurnRoll" address="%QX100.2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TurnTable" address="%QX100.3">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="SEN1VIR" address="%QX0.0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <LD>
+            <leftPowerRail localId="2" height="370" width="10">
+              <position x="140" y="100"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="20"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="130"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="240"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="350"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="3" height="440" width="10">
+              <position x="700" y="100"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="1">
+                  <position x="700" y="120"/>
+                  <position x="591" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="120"/>
+                <connection refLocalId="4">
+                  <position x="700" y="220"/>
+                  <position x="611" y="220"/>
+                </connection>
+                <connection refLocalId="20">
+                  <position x="700" y="220"/>
+                  <position x="640" y="220"/>
+                  <position x="640" y="260"/>
+                  <position x="541" y="260"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="220"/>
+                <connection refLocalId="31">
+                  <position x="700" y="320"/>
+                  <position x="601" y="320"/>
+                </connection>
+                <connection refLocalId="8">
+                  <position x="700" y="320"/>
+                  <position x="650" y="320"/>
+                  <position x="650" y="370"/>
+                  <position x="601" y="370"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="320"/>
+                <connection refLocalId="15">
+                  <position x="700" y="420"/>
+                  <position x="655" y="420"/>
+                  <position x="655" y="450"/>
+                  <position x="591" y="450"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="420"/>
+                <connection refLocalId="16">
+                  <position x="700" y="520"/>
+                  <position x="645" y="520"/>
+                  <position x="645" y="500"/>
+                  <position x="601" y="500"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <contact localId="6" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="230" y="110"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="230" y="120"/>
+                  <position x="150" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>START</variable>
+            </contact>
+            <coil localId="10" height="20" width="21" negated="false" storage="set">
+              <position x="480" y="110"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="6">
+                  <position x="480" y="120"/>
+                  <position x="251" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CON1</variable>
+            </coil>
+            <coil localId="1" height="20" width="21" negated="false" storage="set" executionOrderId="0">
+              <position x="570" y="110"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="10">
+                  <position x="570" y="120"/>
+                  <position x="501" y="120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CON2</variable>
+            </coil>
+            <coil localId="4" height="20" width="21" negated="false" storage="reset" executionOrderId="0">
+              <position x="590" y="210"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="5">
+                  <position x="590" y="220"/>
+                  <position x="441" y="220"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CON2</variable>
+            </coil>
+            <coil localId="5" height="20" width="21" negated="false" storage="reset" executionOrderId="0">
+              <position x="420" y="210"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="7">
+                  <position x="420" y="220"/>
+                  <position x="261" y="220"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>CON1</variable>
+            </coil>
+            <contact localId="7" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="240" y="210"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="240" y="220"/>
+                  <position x="190" y="220"/>
+                  <position x="190" y="230"/>
+                  <position x="150" y="230"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>STOP</variable>
+            </contact>
+            <contact localId="12" height="20" width="21" negated="true" executionOrderId="0">
+              <position x="240" y="250"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="240" y="260"/>
+                  <position x="195" y="260"/>
+                  <position x="195" y="230"/>
+                  <position x="150" y="230"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>STOP</variable>
+            </contact>
+            <coil localId="20" height="20" width="21" negated="false" storage="reset" executionOrderId="0">
+              <position x="520" y="250"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="12">
+                  <position x="520" y="260"/>
+                  <position x="261" y="260"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TurnRoll</variable>
+            </coil>
+            <contact localId="30" height="20" width="21" negated="false">
+              <position x="240" y="310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="240" y="320"/>
+                  <position x="190" y="320"/>
+                  <position x="190" y="340"/>
+                  <position x="150" y="340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>SEN1</variable>
+            </contact>
+            <coil localId="31" height="20" width="21" negated="false" storage="set">
+              <position x="580" y="310"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="30">
+                  <position x="580" y="320"/>
+                  <position x="261" y="320"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TurnRoll</variable>
+            </coil>
+            <contact localId="32" height="20" width="21" negated="false">
+              <position x="240" y="360"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="240" y="370"/>
+                  <position x="190" y="370"/>
+                  <position x="190" y="340"/>
+                  <position x="150" y="340"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TFrontLimit</variable>
+            </contact>
+            <coil localId="8" height="20" width="21" negated="false" storage="reset" executionOrderId="0">
+              <position x="580" y="360"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="9">
+                  <position x="580" y="370"/>
+                  <position x="521" y="370"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TurnRoll</variable>
+            </coil>
+            <coil localId="9" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="500" y="360"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="32">
+                  <position x="500" y="370"/>
+                  <position x="261" y="370"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TurnTable</variable>
+            </coil>
+            <contact localId="11" height="20" width="21" negated="false" executionOrderId="0">
+              <position x="230" y="440"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="230" y="450"/>
+                  <position x="150" y="450"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TFrontLimit90</variable>
+            </contact>
+            <coil localId="15" height="20" width="21" negated="false" storage="set" executionOrderId="0">
+              <position x="570" y="440"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="11">
+                  <position x="570" y="450"/>
+                  <position x="251" y="450"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TurnRoll</variable>
+            </coil>
+            <contact localId="33" height="20" width="21" negated="false">
+              <position x="230" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="2">
+                  <position x="230" y="500"/>
+                  <position x="195" y="500"/>
+                  <position x="195" y="450"/>
+                  <position x="150" y="450"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>SEN2</variable>
+            </contact>
+            <coil localId="16" height="20" width="21" negated="false" storage="reset" executionOrderId="0">
+              <position x="580" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="33">
+                  <position x="580" y="500"/>
+                  <position x="251" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>TurnRoll</variable>
+            </coil>
+          </LD>
+        </body>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="task0" priority="0" interval="T#20ms">
+            <pouInstance name="instance0" typeName="muterr"/>
+          </task>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>
